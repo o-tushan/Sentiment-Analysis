@@ -245,6 +245,26 @@ Some tweets might have interesting characters in them that aren’t part of the 
 | Accuracy/Improvements Bonus | +5              |                |
 | 48hr early submission Bonus | +5              |                |
 
+## How to Run
+
+First, open the terminal, and using ls and cd navigate to the build folder. Next, run the following line of code:
+
+./sentiment data/train_dataset_20k.csv data/test_dataset_10k.csv data/test_dataset_sentiment_10k.csv results.csv accuracy.txt
+
+The program should then run, producing 2 output files. 
+
+The first file is results.csv, which should contain 10,000 lines, which classified each sentiment as positive (4) or negative (0)
+
+The second file is accuracy.txt, which contains the accuracy along with the tweets with incorrectly determined sentiments
+
+## How it works
+
+First, the program iterates through the train_dataset, which gives 20,000 tweets and whether they are positive or negative. Using this data, the program assigns each word in each tweet a value based on the overall tweet's sentiment. As words are found more times, the value goes up or down depending on if it is found in more positive and negative tweets. 
+
+Next, the program goes over the test_dataset, which has 10,000 tweets and no assigned sentiment. Using the database of words and their assigned sentiments, the program then predicts the tweet's sentiment.
+
+Lastly, the program looks at test_dataset_sentiment, and compares the assigned sentiment with the actual sentiment, generating the percent of accuracy. 
+
 
 
 
